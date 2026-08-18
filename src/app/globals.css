@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme {
+  /* Void — the deep-space dark canvas */
+  --color-void: #05060f;
+  --color-void-2: #090b1a;
+  --color-void-3: #0e1124;
+
+  /* Mist — light text on dark */
+  --color-mist: #e8ecf5;
+  --color-mist-soft: #a8b0c5;
+  --color-mist-faint: #6b7390;
+
+  /* Cyan — primary neon accent */
+  --color-cyan: #00e5ff;
+  --color-cyan-bright: #5cffff;
+  --color-cyan-dim: #0099b3;
+
+  /* Violet — secondary accent */
+  --color-violet: #a855f7;
+  --color-violet-bright: #c98bff;
+  --color-violet-dim: #6b2fa0;
+
+  /* Magenta — tertiary pop */
+  --color-magenta: #ff2e88;
+  --color-magenta-bright: #ff6bb0;
+
+  /* Lime — success / data accent */
+  --color-lime: #b6ff3c;
+  --color-lime-dim: #6f9e22;
+
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-chakra: var(--font-chakra), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-display);
+  background: var(--color-void);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-cyan);
+  color: var(--color-void);
+}
+
+/* Custom scrollbar — futuristic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-cyan-dim), var(--color-violet-dim));
+  border-radius: 4px;
+}
+
+/* ---------- Neon glow utilities ---------- */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35), 0 0 60px rgba(0, 229, 255, 0.15);
+}
+.glow-violet {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.35), 0 0 60px rgba(168, 85, 247, 0.15);
+}
+.glow-text-cyan {
+  text-shadow: 0 0 18px rgba(0, 229, 255, 0.55);
+}
+.glow-text-violet {
+  text-shadow: 0 0 18px rgba(168, 85, 247, 0.55);
+}
+
+/* ---------- Gradient text ---------- */
+.text-gradient-cyan {
+  background: linear-gradient(120deg, var(--color-cyan), var(--color-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-magenta {
+  background: linear-gradient(120deg, var(--color-magenta), var(--color-violet-bright));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Glass panel — futuristic ---------- */
+.glass-panel {
+  background: rgba(14, 17, 36, 0.55);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 229, 255, 0.12);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.glass-panel:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.12);
+}
+
+/* ---------- Neon button ---------- */
+.btn-neon {
+  position: relative;
+  background: linear-gradient(120deg, var(--color-cyan), var(--color-violet));
+  color: var(--color-void);
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+}
+.btn-ghost-neon {
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  color: var(--color-cyan);
+  transition: all 0.25s ease;
+}
+.btn-ghost-neon:hover {
+  border-color: var(--color-cyan);
+  background: rgba(0, 229, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+}
+
+/* ---------- Holographic grid backdrop ---------- */
+.grid-holo {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ---------- Clip-path corner (tech panel) ---------- */
+.clip-tech {
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+/* ---------- Marquee ---------- */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* ---------- Slow spin ---------- */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* ---------- Pulse glow ---------- */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ---------- Floating ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
