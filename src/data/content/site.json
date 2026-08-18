@@ -1,0 +1,23 @@
+{
+  "collegeName": "SKP Engineering College",
+  "collegeNameUpper": "SKP ENGINEERING COLLEGE",
+  "trust": "Sri. S. Kuppusaamy Memorial Educational Trust",
+  "departmentName": "B.Tech Artificial Intelligence & Data Science",
+  "departmentShort": "AI & Data Science",
+  "departmentCode": "AI&DS",
+  "tagline": "Learn. Build. Innovate. Lead.",
+  "heroTagline": "Where curious minds learn to build intelligent systems — from first lines of Python to production-grade AI.",
+  "approvedBy": "AICTE",
+  "affiliatedTo": "Anna University, Chennai",
+  "collegeEstablished": 1999,
+  "programEstablished": "2023–24",
+  "initialIntake": 60,
+  "address": {
+    "line1": "NH 66, Somasipadi Post,",
+    "line2": "Chinnakangiyanur, Tiruvannamalai,",
+    "line3": "Tamil Nadu — 606611"
+  },
+  "collegeWebsite": "https://skpec.edu.in/",
+  "departmentEmail": "aids@skpec.edu.in",
+  "mapsQuery": "SKP Engineering College, NH 66, Somasipadi Post, Tiruvannamalai, Tamil Nadu 606611"
+}

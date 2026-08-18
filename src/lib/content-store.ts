@@ -3,13 +3,48 @@ import path from "node:path";
 
 const CONTENT_DIR = path.join(process.cwd(), "src", "data", "content");
 
-export type Collection = "faculty" | "news" | "projects" | "announcements";
+export type Collection =
+  | "faculty"
+  | "news"
+  | "projects"
+  | "announcements"
+  | "site"
+  | "stats"
+  | "whyCards"
+  | "semesters"
+  | "laboratories"
+  | "researchAreas"
+  | "careerOpportunities"
+  | "placementSupport"
+  | "studentResources"
+  | "faqs"
+  | "academicDocuments";
 
 /** Read a JSON collection from the local filesystem. */
 export async function readCollection<T>(name: Collection): Promise<T[]> {
   const file = path.join(CONTENT_DIR, `${name}.json`);
   const raw = await fs.readFile(file, "utf-8");
   return JSON.parse(raw) as T[];
+}
+
+/** Read a single-object JSON file (e.g. site.json) from the local filesystem. */
+export async function readSetting<T>(name: Collection): Promise<T> {
+  const file = path.join(CONTENT_DIR, `${name}.json`);
+  const raw = await fs.readFile(file, "utf-8");
+  return JSON.parse(raw) as T;
+}
+
+/** Write a single-object JSON file locally AND commit it to GitHub. */
+export async function writeSetting<T>(
+  name: Collection,
+  value: T,
+  message: string,
+): Promise<{ committed: boolean; error?: string }> {
+  const file = path.join(CONTENT_DIR, `${name}.json`);
+  const json = JSON.stringify(value, null, 2) + "\n";
+  await fs.mkdir(path.dirname(file), { recursive: true });
+  await fs.writeFile(file, json, "utf-8");
+  return commitToGitHub(`content/${name}.json`, json, message);
 }
 
 /** Write a JSON collection locally AND commit it to GitHub (production rebuild). */

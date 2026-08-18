@@ -1,0 +1,44 @@
+[
+  {
+    "id": "ai-lab",
+    "name": "Artificial Intelligence Lab",
+    "focus": "Search, reasoning, agents and classical AI techniques",
+    "equipment": ["High-performance workstations", "GPU-accelerated nodes"],
+    "software": ["Python", "AIMA notebooks", "Prolog"]
+  },
+  {
+    "id": "ml-lab",
+    "name": "Machine Learning Lab",
+    "focus": "Supervised, unsupervised and ensemble model building",
+    "equipment": ["GPU compute servers", "Shared dataset storage"],
+    "software": ["scikit-learn", "TensorFlow", "PyTorch"]
+  },
+  {
+    "id": "dl-lab",
+    "name": "Deep Learning Lab",
+    "focus": "Neural networks for vision, language and generation",
+    "equipment": ["NVIDIA GPU workstations", "CUDA toolchain"],
+    "software": ["PyTorch", "TensorFlow", "Hugging Face", "Keras"]
+  },
+  {
+    "id": "cv-lab",
+    "name": "Computer Vision Lab",
+    "focus": "Image processing, object detection and spatial analytics",
+    "equipment": ["Camera rigs", "Edge vision devices"],
+    "software": ["OpenCV", "MediaPipe", "YOLO"]
+  },
+  {
+    "id": "ds-lab",
+    "name": "Data Science Lab",
+    "focus": "Statistics, visualisation and end-to-end analytics",
+    "equipment": ["Compute workstations", "Data servers"],
+    "software": ["Pandas", "Matplotlib", "Tableau", "Jupyter"]
+  },
+  {
+    "id": "python-lab",
+    "name": "Programming Lab",
+    "focus": "Python, C and core programming fundamentals",
+    "equipment": ["Standard workstations"],
+    "software": ["Python 3", "C", "VS Code", "Git"]
+  }
+]

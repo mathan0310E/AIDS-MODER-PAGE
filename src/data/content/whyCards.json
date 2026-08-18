@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Artificial Intelligence",
+    "description": "Study how intelligent systems are designed — search, reasoning, agents and autonomous decision-making.",
+    "icon": "brain"
+  },
+  {
+    "title": "Machine Learning",
+    "description": "Train predictive models on real datasets and understand the maths behind learning from data.",
+    "icon": "network"
+  },
+  {
+    "title": "Data Science",
+    "description": "Turn raw, messy data into clear insight through statistics, visualisation and storytelling.",
+    "icon": "chart"
+  },
+  {
+    "title": "Deep Learning",
+    "description": "Build neural networks for vision, language and generative models that power modern AI.",
+    "icon": "layers"
+  },
+  {
+    "title": "Data Analytics",
+    "description": "Apply analytical and statistical techniques to solve problems in industry and society.",
+    "icon": "analytics"
+  },
+  {
+    "title": "Intelligent Applications",
+    "description": "Ship AI-powered solutions for healthcare, agriculture, finance, education and beyond.",
+    "icon": "spark"
+  }
+]

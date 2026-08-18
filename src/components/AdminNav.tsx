@@ -6,10 +6,21 @@ import { Crest } from "@/components/icons";
 
 const links = [
   { label: "Dashboard", href: "/admin" },
+  { label: "Settings", href: "/admin/settings" },
   { label: "Faculty", href: "/admin/faculty" },
   { label: "News", href: "/admin/news" },
   { label: "Projects", href: "/admin/projects" },
   { label: "Announcements", href: "/admin/announcements" },
+  { label: "Stats", href: "/admin/stats" },
+  { label: "Why Cards", href: "/admin/why-cards" },
+  { label: "Curriculum", href: "/admin/curriculum" },
+  { label: "Labs", href: "/admin/labs" },
+  { label: "Research", href: "/admin/research-areas" },
+  { label: "Careers", href: "/admin/careers" },
+  { label: "Placement", href: "/admin/placement" },
+  { label: "Resources", href: "/admin/resources" },
+  { label: "FAQs", href: "/admin/faqs" },
+  { label: "Academic Docs", href: "/admin/academic-docs" },
 ];
 
 export function AdminNav({ email }: { email: string }) {
@@ -23,12 +34,12 @@ export function AdminNav({ email }: { email: string }) {
               Admin · AI&amp;DS
             </span>
           </Link>
-          <div className="hidden items-center gap-1 sm:flex">
+          <div className="hidden items-center gap-1 overflow-x-auto sm:flex">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-md px-3 py-1.5 font-display text-sm text-mist-soft transition-colors hover:text-cyan"
+                className="whitespace-nowrap rounded-md px-3 py-1.5 font-display text-sm text-mist-soft transition-colors hover:text-cyan"
               >
                 {l.label}
               </Link>

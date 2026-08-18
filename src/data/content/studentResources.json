@@ -1,0 +1,10 @@
+[
+  { "name": "Anna University", "url": "https://www.annauniv.edu/", "description": "Affiliating university — regulations, results and academic updates." },
+  { "name": "NPTEL", "url": "https://nptel.ac.in/", "description": "Free courses from IITs and IISc across AI, ML and data science." },
+  { "name": "SWAYAM", "url": "https://swayam.gov.in/", "description": "Government of India MOOC platform for credit-eligible courses." },
+  { "name": "Kaggle", "url": "https://www.kaggle.com/", "description": "Datasets, competitions and notebooks for data science practice." },
+  { "name": "Google Colab", "url": "https://colab.research.google.com/", "description": "Free cloud notebooks for Python, ML and deep learning." },
+  { "name": "GitHub", "url": "https://github.com/", "description": "Host, review and collaborate on code for projects and portfolios." },
+  { "name": "Microsoft Learn", "url": "https://learn.microsoft.com/", "description": "Free learning paths for cloud, AI and developer technologies." },
+  { "name": "Coursera", "url": "https://www.coursera.org/", "description": "University and industry courses across AI and data science." }
+]

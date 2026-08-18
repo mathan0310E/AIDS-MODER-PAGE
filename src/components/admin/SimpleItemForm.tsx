@@ -5,7 +5,7 @@ import { useActionState } from "react";
 interface FieldDef {
   name: string;
   label: string;
-  type: "text" | "date" | "textarea";
+  type: "text" | "date" | "textarea" | "number" | "email";
   required?: boolean;
   full?: boolean;
 }
@@ -49,8 +49,12 @@ export function SimpleItemForm({
           ) : (
             <input
               name={f.name}
-              type={f.type}
-              defaultValue={(item?.[f.name] as string) ?? ""}
+              type={f.type === "number" ? "number" : f.type}
+              defaultValue={
+                item?.[f.name] !== undefined && item?.[f.name] !== null
+                  ? String(item?.[f.name])
+                  : ""
+              }
               className={inputCls}
               required={f.required}
               placeholder={f.label}

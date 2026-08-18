@@ -1,0 +1,91 @@
+[
+  {
+    "number": 1,
+    "theme": "Foundations of Engineering",
+    "subjects": [
+      { "code": "MA3151", "title": "Matrices and Calculus", "type": "Theory" },
+      { "code": "PH3151", "title": "Engineering Physics", "type": "Theory" },
+      { "code": "CY3151", "title": "Engineering Chemistry", "type": "Theory" },
+      { "code": "GE3151", "title": "Problem Solving and Python Programming", "type": "Theory" },
+      { "code": "GE3171", "title": "Problem Solving and Python Programming Lab", "type": "Laboratory" },
+      { "code": "BS3171", "title": "Physics and Chemistry Laboratory", "type": "Laboratory" }
+    ]
+  },
+  {
+    "number": 2,
+    "theme": "Computing & Mathematics",
+    "subjects": [
+      { "code": "MA3251", "title": "Statistics and Numerical Methods", "type": "Theory" },
+      { "code": "CS3251", "title": "Programming in C", "type": "Theory" },
+      { "code": "CS3271", "title": "C Programming Laboratory", "type": "Laboratory" },
+      { "code": "GE3251", "title": "Engineering Graphics", "type": "Theory" },
+      { "code": "GE3271", "title": "Engineering Practices Laboratory", "type": "Laboratory" }
+    ]
+  },
+  {
+    "number": 3,
+    "theme": "Core Data Science",
+    "subjects": [
+      { "code": "MA3354", "title": "Discrete Mathematics", "type": "Theory" },
+      { "code": "CS3491", "title": "Theory of Computation", "type": "Theory" },
+      { "code": "CS3501", "title": "Data Structures", "type": "Theory" },
+      { "code": "AI5011", "title": "Artificial Intelligence", "type": "Theory" },
+      { "code": "AI5012", "title": "Data Science Foundations", "type": "Theory" },
+      { "code": "CS3511", "title": "Data Structures Laboratory", "type": "Laboratory" }
+    ]
+  },
+  {
+    "number": 4,
+    "theme": "ML & Databases",
+    "subjects": [
+      { "code": "AI5021", "title": "Machine Learning", "type": "Theory" },
+      { "code": "CS3492", "title": "Database Management Systems", "type": "Theory" },
+      { "code": "AI5023", "title": "Design and Analysis of Algorithms", "type": "Theory" },
+      { "code": "CS3493", "title": "Object Oriented Programming", "type": "Theory" },
+      { "code": "CS3512", "title": "DBMS Laboratory", "type": "Laboratory" },
+      { "code": "AI5031", "title": "Machine Learning Laboratory", "type": "Laboratory" }
+    ]
+  },
+  {
+    "number": 5,
+    "theme": "Specialised AI",
+    "subjects": [
+      { "code": "AI5032", "title": "Deep Learning", "type": "Theory" },
+      { "code": "AI5033", "title": "Computer Vision", "type": "Theory" },
+      { "code": "AI5034", "title": "Natural Language Processing", "type": "Theory" },
+      { "code": "AI5035", "title": "Big Data Analytics", "type": "Theory" },
+      { "code": "AI5036", "title": "Cloud Computing", "type": "Theory" },
+      { "code": "AI5037", "title": "Deep Learning Laboratory", "type": "Laboratory" }
+    ]
+  },
+  {
+    "number": 6,
+    "theme": "Advanced Systems",
+    "subjects": [
+      { "code": "AI5038", "title": "Reinforcement Learning", "type": "Theory" },
+      { "code": "AI5039", "title": "Generative AI", "type": "Theory" },
+      { "code": "AI5040", "title": "MLOps and Model Deployment", "type": "Theory" },
+      { "code": "AI5041", "title": "Data Engineering", "type": "Theory" },
+      { "code": "AI5042", "title": "Computer Vision Laboratory", "type": "Laboratory" }
+    ]
+  },
+  {
+    "number": 7,
+    "theme": "Industry & Research",
+    "subjects": [
+      { "code": "AI5043", "title": "Edge AI and IoT", "type": "Theory" },
+      { "code": "AI5044", "title": "Responsible AI and Ethics", "type": "Theory" },
+      { "code": "AI5045", "title": "Elective — Specialised Track", "type": "Theory" },
+      { "code": "AI5046", "title": "Mini Project", "type": "Project" },
+      { "code": "AI5047", "title": "Industry Internship", "type": "Project" }
+    ]
+  },
+  {
+    "number": 8,
+    "theme": "Capstone",
+    "subjects": [
+      { "code": "AI5048", "title": "Capstone Project", "type": "Project" },
+      { "code": "AI5049", "title": "Technical Seminar", "type": "Project" }
+    ]
+  }
+]
