@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import { Sora, Chakra_Petch, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
 
-const sora = Sora({
-  variable: "--font-sora",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const chakraPetch = Chakra_Petch({
-  variable: "--font-chakra",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -28,21 +29,22 @@ const jetMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NEXARA — Engineering the Future with AI",
+  title: "AI & Data Science · SKP Engineering College",
   description:
-    "NEXARA is a future-forward AI company building autonomous systems, neural infrastructure, and intelligent platforms for the next decade.",
+    "B.Tech Artificial Intelligence & Data Science at SKP Engineering College — affiliated to Anna University, approved by AICTE. Learn, build, innovate, lead.",
   keywords: [
-    "AI company",
-    "machine learning",
-    "neural infrastructure",
-    "autonomous systems",
-    "future technology",
-    "NEXARA",
+    "SKP Engineering College",
+    "AI & Data Science",
+    "B.Tech AI DS",
+    "Anna University",
+    "Artificial Intelligence",
+    "Data Science",
+    "Tiruvannamalai",
   ],
   openGraph: {
-    title: "NEXARA — Engineering the Future with AI",
+    title: "AI & Data Science · SKP Engineering College",
     description:
-      "Future-forward AI company building autonomous systems and neural infrastructure.",
+      "B.Tech Artificial Intelligence & Data Science — where curious minds learn to build intelligent systems.",
     type: "website",
   },
 };
@@ -53,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${chakraPetch.variable} ${jetMono.variable}`}
+      className={`${spaceGrotesk.variable} ${instrumentSerif.variable} ${jetMono.variable}`}
     >
       <body className="bg-void text-mist antialiased">
         <AnimatedBackground />

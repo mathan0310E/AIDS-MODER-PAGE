@@ -29,8 +29,8 @@
   --color-lime: #b6ff3c;
   --color-lime-dim: #6f9e22;
 
-  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
-  --font-chakra: var(--font-chakra), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
 }
 
@@ -136,6 +136,57 @@ body {
 /* ---------- Clip-path corner (tech panel) ---------- */
 .clip-tech {
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+/* ---------- Accent-bar card (top edge highlight) ---------- */
+.card-accent {
+  position: relative;
+  border: 1px solid rgba(168, 176, 197, 0.12);
+  background: rgba(9, 11, 26, 0.5);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.card-accent::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-violet));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.card-accent:hover {
+  border-color: rgba(0, 229, 255, 0.3);
+  transform: translateY(-3px);
+}
+.card-accent:hover::before {
+  transform: scaleX(1);
+}
+
+/* ---------- Editorial drop-cap ---------- */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 3.6rem;
+  line-height: 0.9;
+  padding-right: 0.08em;
+  padding-top: 0.06em;
+  color: var(--color-cyan);
+  text-shadow: 0 0 18px rgba(0, 229, 255, 0.4);
+}
+
+/* ---------- Numbered list marker ---------- */
+.num-marker {
+  counter-reset: step;
+}
+.num-marker > li {
+  counter-increment: step;
+}
+.num-marker > li::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--font-mono);
+  color: var(--color-cyan);
+  margin-right: 0.75rem;
 }
 
 /* ---------- Marquee ---------- */

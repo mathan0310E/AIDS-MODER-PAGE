@@ -2,156 +2,187 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { Counter } from "@/components/Counter";
-
-const stats = [
-  { target: 240, suffix: "M+", label: "Inferences / day" },
-  { target: 99, suffix: ".98%", label: "Uptime SLA" },
-  { target: 42, suffix: "ms", label: "Median latency" },
-  { target: 18, suffix: "", label: "Global regions" },
-];
+import { site } from "@/data/department";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-dvh items-center overflow-hidden pt-20">
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
-        {/* Left — copy */}
+    <section id="top" className="relative overflow-hidden pt-28 pb-20 sm:pt-32">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 lg:grid-cols-[1.15fr_0.85fr]">
+        {/* Left — editorial copy */}
         <div>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/5 px-4 py-1.5 font-mono text-xs tracking-widest text-cyan uppercase"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 rounded-full border border-cyan/25 bg-cyan/5 px-3.5 py-1.5 font-mono text-[11px] tracking-widest text-cyan uppercase"
           >
             <span className="size-1.5 animate-pulse-glow rounded-full bg-cyan" />
-            Neural Infrastructure · v4.0 Live
+            B.Tech · est. {site.programEstablished} · intake {site.initialIntake}
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.08 }}
+            className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
           >
-            Engineering the
-            <br />
-            <span className="text-gradient-cyan glow-text-cyan">future</span> with
-            <br />
-            autonomous AI.
+            Build the{" "}
+            <span className="relative">
+              <span className="text-gradient-cyan">intelligent</span>
+              <svg
+                className="absolute -bottom-2 left-0 w-full"
+                viewBox="0 0 200 8"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 6c40-4 80-4 120-2s60 2 76 0"
+                  stroke="var(--color-cyan)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  opacity="0.5"
+                />
+              </svg>
+            </span>{" "}
+            systems of tomorrow.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.24 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-mist-soft"
           >
-            NEXARA builds the neural infrastructure powering the next decade of
-            intelligence — from autonomous systems to real-time predictive
-            platforms that operate at planetary scale.
+            {site.heroTagline}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
+            transition={{ duration: 0.6, delay: 0.36 }}
             className="mt-8 flex flex-wrap items-center gap-4"
           >
             <Link
-              href="#contact"
-              className="btn-neon clip-tech inline-flex items-center gap-2 px-7 py-3.5 text-sm"
+              href="#curriculum"
+              className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-cyan to-violet px-6 py-3 font-display text-sm font-semibold text-void transition-transform hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(0,229,255,0.45)]"
             >
-              Launch your AI
+              Explore the curriculum
               <span aria-hidden="true">→</span>
             </Link>
             <Link
-              href="#platform"
-              className="btn-ghost-neon inline-flex items-center gap-2 rounded-lg px-7 py-3.5 font-chakra text-sm"
+              href="#about"
+              className="inline-flex items-center gap-2 rounded-md border border-mist-faint/30 px-6 py-3 font-display text-sm text-mist-soft transition-colors hover:border-cyan/40 hover:text-cyan"
             >
-              Explore Platform
+              Why AI &amp; DS?
             </Link>
           </motion.div>
 
-          <motion.dl
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-14 grid max-w-xl grid-cols-2 gap-6 sm:grid-cols-4"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-8 font-mono text-xs tracking-wide text-mist-faint"
           >
-            {stats.map((s) => (
-              <div key={s.label}>
-                <dt className="font-mono text-xs tracking-wide text-mist-faint uppercase">
-                  {s.label}
-                </dt>
-                <dd className="mt-1 font-display text-2xl font-bold text-mist">
-                  <Counter target={s.target} suffix={s.suffix} />
-                </dd>
-              </div>
-            ))}
-          </motion.dl>
+            {site.affiliatedTo} · Approved by {site.approvedBy}
+          </motion.p>
         </div>
 
-        {/* Right — floating animated UI mock */}
+        {/* Right — custom data-flow illustration */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="relative hidden lg:block"
         >
-          <FloatingUIMock />
+          <DataFlowArt />
         </motion.div>
       </div>
     </section>
   );
 }
 
-function FloatingUIMock() {
+/** A hand-composed SVG: data flowing from raw inputs through a neural layer
+ *  into insight. Custom, not a stock orbiting-rings graphic. */
+function DataFlowArt() {
   return (
-    <div className="relative h-[28rem]">
-      {/* orbiting rings */}
-      <div className="absolute left-1/2 top-1/2 size-80 -translate-x-1/2 -translate-y-1/2">
-        <div className="animate-spin-slow absolute inset-0 rounded-full border border-cyan/20" />
-        <div
-          className="animate-spin-slow absolute inset-8 rounded-full border border-violet/20"
-          style={{ animationDirection: "reverse", animationDuration: "15s" }}
-        />
-        <div className="absolute inset-16 rounded-full border border-cyan/10" />
-      </div>
+    <div className="relative">
+      <svg viewBox="0 0 420 380" className="w-full" fill="none" aria-hidden="true">
+        {/* input nodes */}
+        <g stroke="var(--color-mist-faint)" strokeWidth="1" opacity="0.4">
+          <circle cx="30" cy="80" r="5" />
+          <circle cx="30" cy="140" r="5" />
+          <circle cx="30" cy="200" r="5" />
+          <circle cx="30" cy="260" r="5" />
+          <circle cx="30" cy="320" r="5" />
+        </g>
+        <text x="30" y="55" fill="var(--color-mist-faint)" fontSize="9" fontFamily="var(--font-mono)" textAnchor="middle">
+          DATA IN
+        </text>
 
-      {/* central core */}
-      <div className="absolute left-1/2 top-1/2 grid size-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl border border-cyan/30 bg-void-3/80 backdrop-blur-xl glow-cyan">
-        <div className="animate-pulse-glow size-16 rounded-xl bg-gradient-to-br from-cyan to-violet" />
-        <span className="absolute -bottom-7 font-mono text-xs tracking-widest text-cyan uppercase">
-          CORE
-        </span>
-      </div>
+        {/* hidden layer 1 */}
+        <g stroke="var(--color-cyan-dim)" strokeWidth="0.8" opacity="0.5">
+          <circle cx="150" cy="110" r="6" />
+          <circle cx="150" cy="190" r="6" />
+          <circle cx="150" cy="270" r="6" />
+        </g>
 
-      {/* floating cards */}
-      <motion.div
-        animate={{ y: [0, -14, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="glass-panel clip-tech absolute left-0 top-8 w-44 p-4"
-      >
+        {/* hidden layer 2 */}
+        <g stroke="var(--color-violet-dim)" strokeWidth="0.8" opacity="0.5">
+          <circle cx="260" cy="140" r="6" />
+          <circle cx="260" cy="240" r="6" />
+        </g>
+
+        {/* output */}
+        <g>
+          <circle cx="380" cy="190" r="10" fill="var(--color-cyan)" opacity="0.15" />
+          <circle cx="380" cy="190" r="5" fill="var(--color-cyan)" />
+        </g>
+        <text x="380" y="220" fill="var(--color-cyan)" fontSize="9" fontFamily="var(--font-mono)" textAnchor="middle">
+          INSIGHT
+        </text>
+
+        {/* connections */}
+        <g stroke="var(--color-cyan)" strokeWidth="0.6" opacity="0.3">
+          {[80, 140, 200, 260, 320].map((y) =>
+            [110, 190, 270].map((y2) => (
+              <line key={`${y}-${y2}`} x1="35" y1={y} x2="144" y2={y2} />
+            )),
+          )}
+          {[110, 190, 270].map((y) =>
+            [140, 240].map((y2) => (
+              <line key={`l2-${y}-${y2}`} x1="156" y1={y} x2="254" y2={y2} />
+            )),
+          )}
+          {[140, 240].map((y) => (
+            <line key={`out-${y}`} x1="266" y1={y} x2="370" y2="190" />
+          ))}
+        </g>
+
+        {/* animated pulse along the main path */}
+        <motion.circle
+          r="3"
+          fill="var(--color-cyan)"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 3, repeat: Infinity, times: [0, 0.5, 1] }}
+        >
+          <animateMotion dur="3s" repeatCount="indefinite" path="M35,200 L150,190 L260,140 L380,190" />
+        </motion.circle>
+      </svg>
+
+      {/* floating annotation */}
+      <div className="glass-panel absolute right-2 top-2 w-40 p-3">
         <p className="font-mono text-[10px] tracking-widest text-cyan uppercase">
-          Inference
+          Neural net
         </p>
-        <p className="mt-1 font-display text-xl font-bold text-mist">2.4M</p>
-        <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-void-3">
-          <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-cyan to-violet" />
-        </div>
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 14, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="glass-panel clip-tech absolute right-0 top-24 w-44 p-4"
-      >
+        <p className="mt-1 font-display text-sm text-mist">Input → Insight</p>
+      </div>
+      <div className="glass-panel absolute bottom-4 left-2 w-44 p-3">
         <p className="font-mono text-[10px] tracking-widest text-violet-bright uppercase">
-          Latency
+          Real-time
         </p>
-        <p className="mt-1 font-display text-xl font-bold text-mist">42ms</p>
         <div className="mt-2 flex gap-1">
-          {[40, 70, 30, 90, 55].map((h, i) => (
+          {[30, 60, 45, 80, 50, 70].map((h, i) => (
             <div
               key={i}
               className="w-2 rounded-full bg-violet"
@@ -159,21 +190,7 @@ function FloatingUIMock() {
             />
           ))}
         </div>
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="glass-panel clip-tech absolute bottom-8 left-12 w-48 p-4"
-      >
-        <p className="font-mono text-[10px] tracking-widest text-lime uppercase">
-          Status
-        </p>
-        <div className="mt-2 flex items-center gap-2">
-          <span className="size-2 animate-pulse-glow rounded-full bg-lime" />
-          <span className="font-chakra text-sm text-mist">All systems nominal</span>
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -2,14 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const nav = [
-  { label: "Platform", href: "#platform" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Process", href: "#process" },
-  { label: "Showcase", href: "#showcase" },
-  { label: "Team", href: "#team" },
-];
+import { Crest } from "@/components/icons";
+import { navLinks } from "@/data/department";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,47 +20,45 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-cyan/10 bg-void/70 backdrop-blur-xl"
+          ? "border-b border-cyan/10 bg-void/80 backdrop-blur-xl"
           : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link href="/" className="group flex items-center gap-2.5">
-          <span className="relative grid size-9 place-items-center">
-            <span className="absolute inset-0 rounded-md border border-cyan/40 transition-transform duration-500 group-hover:rotate-45" />
-            <span className="absolute inset-1.5 rounded-sm bg-cyan/10" />
-            <span className="relative font-mono text-sm font-bold text-cyan">N</span>
-          </span>
-          <span className="font-display text-lg font-bold tracking-tight text-mist">
-            NEX<span className="text-cyan glow-text-cyan">ARA</span>
+        <Link href="#top" className="group flex items-center gap-3">
+          <Crest className="size-8 text-cyan transition-transform duration-500 group-hover:rotate-[8deg]" />
+          <span className="leading-tight">
+            <span className="block font-display text-sm font-bold tracking-tight text-mist">
+              AI &amp; Data Science
+            </span>
+            <span className="block font-mono text-[10px] tracking-widest text-mist-faint uppercase">
+              SKP Engineering College
+            </span>
           </span>
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
-          {nav.map((item) => (
+        <div className="hidden items-center gap-1 lg:flex">
+          {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-4 py-2 font-chakra text-sm text-mist-soft transition-colors hover:text-cyan"
+              className="rounded-md px-3 py-2 font-display text-sm text-mist-soft transition-colors hover:text-cyan"
             >
               {item.label}
             </Link>
           ))}
         </div>
 
-        <div className="hidden md:block">
-          <Link
-            href="#contact"
-            className="btn-neon clip-tech inline-flex items-center gap-2 px-5 py-2.5 text-sm"
-          >
-            Get Started
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
+        <Link
+          href="#contact"
+          className="hidden items-center gap-2 rounded-md border border-cyan/30 px-4 py-2 font-display text-sm text-cyan transition-all hover:bg-cyan/10 hover:shadow-[0_0_20px_rgba(0,229,255,0.25)] lg:inline-flex"
+        >
+          Apply now
+        </Link>
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="grid size-10 place-items-center rounded-md border border-cyan/20 text-cyan md:hidden"
+          className="grid size-10 place-items-center rounded-md border border-cyan/20 text-cyan lg:hidden"
           aria-label="Toggle menu"
         >
           <span className="text-lg">{open ? "✕" : "☰"}</span>
@@ -74,24 +66,17 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-cyan/10 bg-void/95 px-6 py-4 backdrop-blur-xl md:hidden">
-          {nav.map((item) => (
+        <div className="border-t border-cyan/10 bg-void/95 px-6 py-4 backdrop-blur-xl lg:hidden">
+          {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block rounded-md px-4 py-3 font-chakra text-sm text-mist-soft hover:text-cyan"
+              className="block rounded-md px-4 py-3 font-display text-sm text-mist-soft hover:text-cyan"
             >
               {item.label}
             </Link>
           ))}
-          <Link
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="btn-neon mt-3 block rounded-md px-4 py-3 text-center text-sm"
-          >
-            Get Started →
-          </Link>
         </div>
       )}
     </header>
