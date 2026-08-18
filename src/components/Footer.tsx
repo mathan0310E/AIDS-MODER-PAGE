@@ -62,6 +62,14 @@ export function Footer() {
             >
               {site.departmentEmail}
             </a>
+            <p className="mt-4">
+              <Link
+                href="/admin"
+                className="font-mono text-[10px] tracking-widest text-mist-faint uppercase hover:text-cyan"
+              >
+                Admin sign-in →
+              </Link>
+            </p>
           </div>
         </div>
 

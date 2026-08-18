@@ -1,0 +1,50 @@
+[
+  {
+    "id": "p1",
+    "title": "Smart Crop Disease Detector",
+    "category": "Computer Vision",
+    "blurb": "A mobile app that diagnoses crop diseases from a leaf photo and suggests treatment.",
+    "technologies": ["PyTorch", "OpenCV", "Flutter"],
+    "status": "Ongoing"
+  },
+  {
+    "id": "p2",
+    "title": "Campus Attendance via Face Recognition",
+    "category": "Computer Vision",
+    "blurb": "Automated classroom attendance using real-time face recognition at the door.",
+    "technologies": ["FaceNet", "OpenCV", "Python"],
+    "status": "Completed"
+  },
+  {
+    "id": "p3",
+    "title": "Medical Report Summariser",
+    "category": "NLP",
+    "blurb": "An NLP tool that turns lengthy medical reports into plain-language summaries for patients.",
+    "technologies": ["Transformers", "Hugging Face", "FastAPI"],
+    "status": "Ongoing"
+  },
+  {
+    "id": "p4",
+    "title": "Local Language Chatbot",
+    "category": "Generative AI",
+    "blurb": "A Tamil-language conversational assistant for government scheme enquiries.",
+    "technologies": ["LLM", "RAG", "LangChain"],
+    "status": "Recruiting"
+  },
+  {
+    "id": "p5",
+    "title": "Traffic Flow Predictor",
+    "category": "Data Science",
+    "blurb": "Predicts congestion hotspots in Tiruvannamalai from historical traffic data.",
+    "technologies": ["Pandas", "XGBoost", "Folium"],
+    "status": "Completed"
+  },
+  {
+    "id": "p6",
+    "title": "Smart Energy Monitor",
+    "category": "IoT + AI",
+    "blurb": "IoT sensors plus anomaly detection to flag wasteful energy use in campus buildings.",
+    "technologies": ["Arduino", "MQTT", "scikit-learn"],
+    "status": "Ongoing"
+  }
+]

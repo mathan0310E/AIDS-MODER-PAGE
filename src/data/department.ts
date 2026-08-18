@@ -291,62 +291,8 @@ export interface StudentProject {
   status: "Ongoing" | "Completed" | "Recruiting";
 }
 
-export const studentProjects: StudentProject[] = [
-  {
-    id: "p1",
-    title: "Smart Crop Disease Detector",
-    category: "Computer Vision",
-    blurb:
-      "A mobile app that diagnoses crop diseases from a leaf photo and suggests treatment.",
-    technologies: ["PyTorch", "OpenCV", "Flutter"],
-    status: "Ongoing",
-  },
-  {
-    id: "p2",
-    title: "Campus Attendance via Face Recognition",
-    category: "Computer Vision",
-    blurb:
-      "Automated classroom attendance using real-time face recognition at the door.",
-    technologies: ["FaceNet", "OpenCV", "Python"],
-    status: "Completed",
-  },
-  {
-    id: "p3",
-    title: "Medical Report Summariser",
-    category: "NLP",
-    blurb:
-      "An NLP tool that turns lengthy medical reports into plain-language summaries for patients.",
-    technologies: ["Transformers", "Hugging Face", "FastAPI"],
-    status: "Ongoing",
-  },
-  {
-    id: "p4",
-    title: "Local Language Chatbot",
-    category: "Generative AI",
-    blurb:
-      "A Tamil-language conversational assistant for government scheme enquiries.",
-    technologies: ["LLM", "RAG", "LangChain"],
-    status: "Recruiting",
-  },
-  {
-    id: "p5",
-    title: "Traffic Flow Predictor",
-    category: "Data Science",
-    blurb:
-      "Predicts congestion hotspots in Tiruvannamalai from historical traffic data.",
-    technologies: ["Pandas", "XGBoost", "Folium"],
-    status: "Completed",
-  },
-  {
-    id: "p6",
-    title: "Smart Energy Monitor",
-    category: "IoT + AI",
-    blurb:
-      "IoT sensors plus anomaly detection to flag wasteful energy use in campus buildings.",
-    technologies: ["Arduino", "MQTT", "scikit-learn"],
-    status: "Ongoing",
-  },
-];
+export const studentProjects: StudentProject[] =
+  projectsData as StudentProject[];
 
 /* ------------------------------- Research areas --------------------------- */
 
@@ -434,6 +380,11 @@ export const studentResources: StudentResource[] = [
 
 /* ----------------------------------- News --------------------------------- */
 
+import newsData from "@/data/content/news.json";
+import projectsData from "@/data/content/projects.json";
+import announcementsData from "@/data/content/announcements.json";
+import facultyData from "@/data/content/faculty.json";
+
 export interface NewsItem {
   id: string;
   date: string;
@@ -442,29 +393,9 @@ export interface NewsItem {
   summary: string;
 }
 
-export const news: NewsItem[] = [
-  {
-    id: "welcome-2023",
-    date: "2023-08-01",
-    category: "Department",
-    title: "B.Tech AI & Data Science programme launched",
-    summary:
-      "SKP Engineering College introduces the B.Tech Artificial Intelligence and Data Science undergraduate programme from 2023–24 with an initial intake of 60 students.",
-  },
-  {
-    id: "admissions-open",
-    date: "2024-05-01",
-    category: "Admissions",
-    title: "Admissions open for the new batch",
-    summary:
-      "Admissions are open for B.Tech Artificial Intelligence & Data Science. Contact the department for eligibility and application details.",
-  },
-];
+export const news: NewsItem[] = newsData as NewsItem[];
 
-export const announcements: string[] = [
-  "Admissions open for B.Tech AI & Data Science — contact the department for enquiries.",
-  "Department circulars, timetables and event updates will be published here as they arrive.",
-];
+export const announcements: string[] = announcementsData as string[];
 
 /* ---------------------------------- FAQ ----------------------------------- */
 
@@ -504,12 +435,8 @@ export interface FacultyMember {
   qualification: string;
   specialization: string[];
   email: string;
+  photo?: string;
 }
 
-/** Photo-ready placeholders — the department adds real faculty details here. */
-export const faculty: FacultyMember[] = [
-  { id: "hod", name: "Head of Department", designation: "Professor & HoD", qualification: PLACEHOLDER_NOTE, specialization: ["Artificial Intelligence"], email: "aids@skpec.edu.in" },
-  { id: "f2", name: "Faculty Member", designation: "Associate Professor", qualification: PLACEHOLDER_NOTE, specialization: ["Machine Learning", "Data Science"], email: "—" },
-  { id: "f3", name: "Faculty Member", designation: "Assistant Professor", qualification: PLACEHOLDER_NOTE, specialization: ["Computer Vision", "Deep Learning"], email: "—" },
-  { id: "f4", name: "Faculty Member", designation: "Assistant Professor", qualification: PLACEHOLDER_NOTE, specialization: ["NLP", "Data Analytics"], email: "—" },
-];
+/** Faculty is admin-editable (stored in src/data/content/faculty.json). */
+export const faculty: FacultyMember[] = facultyData as FacultyMember[];

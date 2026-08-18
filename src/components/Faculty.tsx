@@ -23,12 +23,23 @@ export function Faculty() {
           {faculty.map((m) => (
             <RevealItem key={m.id}>
               <article className="card-accent group h-full rounded-lg p-6 text-center">
-                {/* photo-ready placeholder — a stylised avatar frame */}
+                {/* photo-ready placeholder — shows uploaded photo, else a stylised avatar frame */}
                 <div className="relative mx-auto grid size-24 place-items-center overflow-hidden rounded-full border-2 border-cyan/25 bg-void-3">
-                  <div className="grid-holo absolute inset-0 opacity-30" />
-                  <span className="relative font-display text-2xl font-bold text-cyan/40">
-                    {m.id === "hod" ? "HoD" : "👤"}
-                  </span>
+                  {m.photo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={m.photo}
+                      alt={m.name}
+                      className="size-full rounded-full object-cover"
+                    />
+                  ) : (
+                    <>
+                      <div className="grid-holo absolute inset-0 opacity-30" />
+                      <span className="relative font-display text-2xl font-bold text-cyan/40">
+                        {m.id === "hod" ? "HoD" : "👤"}
+                      </span>
+                    </>
+                  )}
                   {/* photo upload hint */}
                   <span className="absolute bottom-0 inset-x-0 bg-void/80 py-0.5 font-mono text-[8px] text-mist-faint opacity-0 transition-opacity group-hover:opacity-100">
                     photo
@@ -57,7 +68,7 @@ export function Faculty() {
                     </span>
                   ))}
                 </div>
-                {m.email !== "—" && (
+                {m.email && m.email !== "—" && (
                   <a
                     href={`mailto:${m.email}`}
                     className="mt-4 inline-block font-mono text-[11px] text-mist-soft hover:text-cyan"

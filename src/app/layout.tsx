@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -60,11 +58,7 @@ export default function RootLayout({
       <body className="bg-void text-mist antialiased">
         <AnimatedBackground />
         <CursorSpotlight />
-        <div className="relative z-10 flex min-h-dvh flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        {children}
       </body>
     </html>
   );

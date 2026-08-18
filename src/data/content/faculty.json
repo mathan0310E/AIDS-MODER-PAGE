@@ -1,0 +1,38 @@
+[
+  {
+    "id": "hod",
+    "name": "Head of Department",
+    "designation": "Professor & HoD",
+    "qualification": "Information will be updated by the department.",
+    "specialization": ["Artificial Intelligence"],
+    "email": "aids@skpec.edu.in",
+    "photo": ""
+  },
+  {
+    "id": "f2",
+    "name": "Faculty Member",
+    "designation": "Associate Professor",
+    "qualification": "Information will be updated by the department.",
+    "specialization": ["Machine Learning", "Data Science"],
+    "email": "",
+    "photo": ""
+  },
+  {
+    "id": "f3",
+    "name": "Faculty Member",
+    "designation": "Assistant Professor",
+    "qualification": "Information will be updated by the department.",
+    "specialization": ["Computer Vision", "Deep Learning"],
+    "email": "",
+    "photo": ""
+  },
+  {
+    "id": "f4",
+    "name": "Faculty Member",
+    "designation": "Assistant Professor",
+    "qualification": "Information will be updated by the department.",
+    "specialization": ["NLP", "Data Analytics"],
+    "email": "",
+    "photo": ""
+  }
+]
