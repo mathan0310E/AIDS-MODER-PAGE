@@ -4,6 +4,10 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { SimpleItemForm } from "@/components/admin/SimpleItemForm";
 
+function slug(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "entry";
+}
+
 interface NewsItem {
   id: string;
   date: string;
@@ -26,7 +30,7 @@ export default async function NewsAdminPage() {
   async function upsert(formData: FormData) {
     "use server";
     await requireAdmin();
-    const id = (formData.get("id") as string) || (formData.get("title") as string).toString().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    const id = (formData.get("id") as string) || slug(formData.get("title") as string);
     const item: NewsItem = {
       id,
       title: (formData.get("title") as string) || "",

@@ -14,11 +14,27 @@ export default async function AnnouncementsAdminPage() {
   async function saveAll(formData: FormData) {
     "use server";
     await requireAdmin();
+    // Process delete checkboxes
+    const delIndices = new Set<number>();
+    for (const [key] of formData.entries()) {
+      if (key.startsWith("del-")) {
+        const idx = Number(key.replace("del-", ""));
+        if (!isNaN(idx)) delIndices.add(idx);
+      }
+    }
+    // Collect entries, exclude deleted ones
     const entries = [...formData.entries()].filter(([k]) => k.startsWith("ann-"));
     const texts = entries
       .sort((a, b) => a[0].localeCompare(b[0]))
-      .map(([, v]) => (v as string).trim())
-      .filter(Boolean);
+      .filter(([, v]) => (v as string).trim().length > 0)
+      .filter(([, ], i) => {
+        // Map sorted index back to original index
+        const origKey = entries.sort((a, b) => a[0].localeCompare(b[0]))[i][0];
+        const origIdx = Number(origKey.replace("ann-", ""));
+        return !delIndices.has(origIdx);
+      })
+      .map(([, v]) => (v as string).trim());
+
     await writeCollection("announcements" as Collection, texts, "Update announcements");
     revalidatePath("/");
     redirect("/admin/announcements");
@@ -41,9 +57,11 @@ export default async function AnnouncementsAdminPage() {
     await requireAdmin();
     const idx = Number(formData.get("index"));
     const all = await readCollection<string>("announcements");
-    all.splice(idx, 1);
-    await writeCollection("announcements" as Collection, all, "Delete announcement");
-    revalidatePath("/");
+    if (Number.isInteger(idx) && idx >= 0 && idx < all.length) {
+      all.splice(idx, 1);
+      await writeCollection("announcements" as Collection, all, "Delete announcement");
+      revalidatePath("/");
+    }
     redirect("/admin/announcements");
   }
 

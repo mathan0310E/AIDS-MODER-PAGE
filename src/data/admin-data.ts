@@ -1,3 +1,8 @@
+/**
+ * Re-exports all content collections for the admin dashboard.
+ * Components should import from @/data/department.ts instead —
+ * this barrel file exists solely for admin page item counts.
+ */
 import siteData from "@/data/content/site.json";
 import statsData from "@/data/content/stats.json";
 import whyCardsData from "@/data/content/whyCards.json";

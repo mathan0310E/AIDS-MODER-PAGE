@@ -6,6 +6,27 @@ import { redirect } from "next/navigation";
 const inputCls =
   "w-full rounded-md border border-mist-faint/20 bg-void-3/60 px-3 py-2 font-display text-sm text-mist focus:border-cyan/40 focus:outline-none";
 
+export function adminSlug(c: Collection): string {
+  const map: Record<Collection, string> = {
+    faculty: "faculty",
+    news: "news",
+    projects: "projects",
+    announcements: "announcements",
+    site: "settings",
+    stats: "stats",
+    whyCards: "why-cards",
+    semesters: "curriculum",
+    laboratories: "labs",
+    researchAreas: "research-areas",
+    careerOpportunities: "careers",
+    placementSupport: "placement",
+    studentResources: "resources",
+    faqs: "faqs",
+    academicDocuments: "academic-docs",
+  };
+  return map[c];
+}
+
 /**
  * Admin page for a JSON collection that is a simple string[].
  * Renders add / edit-all / delete controls.
@@ -23,25 +44,52 @@ export function makeStringListPage(opts: {
       "use server";
       await requireAdmin();
       const text = (formData.get("text") as string).trim();
-      if (!text) redirect(`/admin/${slug(opts.collection)}`);
+      if (!text) redirect(`/admin/${adminSlug(opts.collection)}`);
       const all = await readCollection<string>(opts.collection);
       all.push(text);
       await writeCollection(opts.collection, all, `Add ${opts.collection}: ${text}`);
       revalidatePath("/");
-      redirect(`/admin/${slug(opts.collection)}`);
+      redirect(`/admin/${adminSlug(opts.collection)}`);
     }
 
     async function saveAll(formData: FormData) {
       "use server";
       await requireAdmin();
+      // Process delete checkboxes first
+      const delIndices = new Set<number>();
+      for (const [key] of formData.entries()) {
+        if (key.startsWith("del-")) {
+          const idx = Number(key.replace("del-", ""));
+          if (!isNaN(idx)) delIndices.add(idx);
+        }
+      }
+      // Collect remaining items (exclude deleted ones)
       const entries = [...formData.entries()].filter(([k]) => k.startsWith("item-"));
       const texts = entries
         .sort((a, b) => a[0].localeCompare(b[0]))
-        .map(([, v]) => (v as string).trim())
-        .filter(Boolean);
-      await writeCollection(opts.collection, texts, `Update ${opts.collection}`);
+        .map(([, v], i) => {
+          // The index in the sorted array may differ from the original index
+          // We need to map from original key to sorted position
+          return (v as string).trim();
+        })
+        .filter((v) => v.length > 0);
+
+      // Re-filter: remove items whose original index was checked for deletion
+      const finalTexts: string[] = [];
+      entries
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .forEach(([, v], sortedIdx) => {
+          // Extract original index from key name (item-0, item-1, etc.)
+          const key = entries.sort((a, b) => a[0].localeCompare(b[0]))[sortedIdx][0];
+          const origIdx = Number(key.replace("item-", ""));
+          if (!delIndices.has(origIdx) && (v as string).trim().length > 0) {
+            finalTexts.push((v as string).trim());
+          }
+        });
+
+      await writeCollection(opts.collection, finalTexts, `Update ${opts.collection}`);
       revalidatePath("/");
-      redirect(`/admin/${slug(opts.collection)}`);
+      redirect(`/admin/${adminSlug(opts.collection)}`);
     }
 
     async function removeOne(formData: FormData) {
@@ -52,7 +100,7 @@ export function makeStringListPage(opts: {
       all.splice(idx, 1);
       await writeCollection(opts.collection, all, `Delete ${opts.collection} item`);
       revalidatePath("/");
-      redirect(`/admin/${slug(opts.collection)}`);
+      redirect(`/admin/${adminSlug(opts.collection)}`);
     }
 
     return (
@@ -103,25 +151,4 @@ export function makeStringListPage(opts: {
       </>
     );
   };
-}
-
-function slug(c: Collection): string {
-  const map: Record<Collection, string> = {
-    faculty: "faculty",
-    news: "news",
-    projects: "projects",
-    announcements: "announcements",
-    site: "settings",
-    stats: "stats",
-    whyCards: "why-cards",
-    semesters: "curriculum",
-    laboratories: "labs",
-    researchAreas: "research-areas",
-    careerOpportunities: "careers",
-    placementSupport: "placement",
-    studentResources: "resources",
-    faqs: "faqs",
-    academicDocuments: "academic-docs",
-  };
-  return map[c];
 }

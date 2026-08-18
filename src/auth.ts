@@ -7,6 +7,9 @@ const adminEmails = (process.env.ADMIN_EMAILS || "")
   .map((e) => e.trim().toLowerCase())
   .filter(Boolean);
 
+/** Only allow dev bypass when explicitly enabled — never in production. */
+const devBypass = process.env.ADMIN_DEV_BYPASS === "true";
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
@@ -22,13 +25,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async signIn({ user }) {
       const email = user?.email?.toLowerCase();
       if (!email) return false;
-      // Dev bypass so the preview is browsable without Google creds configured.
-      if (
-        process.env.NODE_ENV === "development" &&
-        adminEmails.length === 0
-      ) {
+      // Dev bypass: only when explicit env flag is set (never in prod by accident).
+      if (devBypass && process.env.NODE_ENV !== "production") {
         return true;
       }
+      if (adminEmails.length === 0) return false;
       return adminEmails.includes(email);
     },
     async jwt({ token, user }) {
@@ -52,7 +53,7 @@ export async function requireAdmin() {
   }
   const email = session.user.email.toLowerCase();
   const allowed =
-    process.env.NODE_ENV === "development" && adminEmails.length === 0
+    devBypass && process.env.NODE_ENV !== "production"
       ? true
       : adminEmails.includes(email);
   if (!allowed) {
