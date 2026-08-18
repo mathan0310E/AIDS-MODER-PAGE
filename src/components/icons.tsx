@@ -199,6 +199,113 @@ const iconMap = {
   spark: SparkIcon,
 };
 
+export function TrophyIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M14 10h20v8a10 10 0 0 1-20 0z" />
+      <path d="M14 12H8v4a6 6 0 0 0 6 6M34 12h6v4a6 6 0 0 1-6 6" />
+      <path d="M24 28v6M18 40h12M20 34h8l1 6h-10z" />
+    </svg>
+  );
+}
+
+export function CalendarIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <rect x="6" y="10" width="36" height="32" rx="3" />
+      <path d="M6 18h36M16 6v8M32 6v8" />
+      <path d="M14 26h4M22 26h4M30 26h4M14 33h4M22 33h4" opacity="0.6" />
+    </svg>
+  );
+}
+
+export function UsersIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <circle cx="18" cy="16" r="6" />
+      <path d="M6 38c0-6 5-10 12-10s12 4 12 10" />
+      <circle cx="33" cy="18" r="5" opacity="0.7" />
+      <path d="M30 29c6 0 12 3 12 9" opacity="0.7" />
+    </svg>
+  );
+}
+
+export function DownloadIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M24 6v24M16 22l8 8 8-8" />
+      <path d="M8 38h32" />
+    </svg>
+  );
+}
+
+export function ChevronIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M18 16l8 8-8 8" />
+    </svg>
+  );
+}
+
+export function SearchIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <circle cx="21" cy="21" r="14" />
+      <path d="M31 31l10 10" />
+    </svg>
+  );
+}
+
+export function ExternalIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M20 8H8v32h32V28" />
+      <path d="M28 8h12v12M40 8L24 24" />
+    </svg>
+  );
+}
+
+export function CloseIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M12 12l24 24M36 12L12 36" />
+    </svg>
+  );
+}
+
+export function MenuIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M8 14h32M8 24h32M8 34h32" />
+    </svg>
+  );
+}
+
+export function ArrowIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M10 24h26M26 14l10 10-10 10" />
+    </svg>
+  );
+}
+
+export function GithubIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M24 4C13 4 4 13 4 24c0 9 6 16 14 19 1 0 1-0.5 1-1v-3c-6 1-7-3-7-3-1-2-2-3-2-3-2-1 0-1 0-1 2 0 3 2 3 2 2 3 5 2 7 1 0-1 1-2 1-3-3 0-6-2-6-6 0-1 1-3 2-4-1-0.5-2-3 0-4 0 0 2 0 4 2 1 0 4 0 5-2 1-2 3-2 4-1 2 0 4-1 4-1 1 0 1 1 0 4 2 1 3 3 3 4 1 1 2 3 2 4 0 4-3 6-6 6 1 1 2 2 2 4v3c0 0.5 1 1 1 1 8-3 14-10 14-19 0-11-9-20-20-20z" />
+    </svg>
+  );
+}
+
+export function Pin2Icon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" {...base} {...props}>
+      <path d="M24 6c-7 0-12 5-12 12 0 9 12 22 12 22s12-13 12-22c0-7-5-12-12-12z" />
+      <circle cx="24" cy="18" r="4" />
+    </svg>
+  );
+}
+
 export function WhyIcon({
   name,
   className,

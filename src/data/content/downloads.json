@@ -1,0 +1,10 @@
+[
+  { "id": "download-1", "title": "Anna University Syllabus — to be uploaded", "category": "Syllabus", "available": false },
+  { "id": "download-2", "title": "Programme Regulations — to be uploaded", "category": "Regulations", "available": false },
+  { "id": "download-3", "title": "Class Timetable — to be uploaded", "category": "Timetable", "available": false },
+  { "id": "download-4", "title": "Academic Calendar — to be uploaded", "category": "Academic Calendar", "available": false },
+  { "id": "download-5", "title": "Department Circulars — to be uploaded", "category": "Circulars", "available": false },
+  { "id": "download-6", "title": "Admission & Exam Forms — to be uploaded", "category": "Forms", "available": false },
+  { "id": "download-7", "title": "Department Documents — to be uploaded", "category": "Department Documents", "available": false },
+  { "id": "download-8", "title": "Student Resource Pack — to be uploaded", "category": "Student Resources", "available": false }
+]

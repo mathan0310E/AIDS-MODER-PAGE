@@ -18,6 +18,20 @@ import facultyData from "@/data/content/faculty.json";
 import newsData from "@/data/content/news.json";
 import projectsData from "@/data/content/projects.json";
 import announcementsData from "@/data/content/announcements.json";
+import clubData from "@/data/content/club.json";
+import activityCategoriesData from "@/data/content/activityCategories.json";
+import activitiesData from "@/data/content/activities.json";
+import achievementCategoriesData from "@/data/content/achievementCategories.json";
+import achievementsData from "@/data/content/achievements.json";
+import calendarCategoriesData from "@/data/content/calendarCategories.json";
+import calendarEventsData from "@/data/content/calendarEvents.json";
+import galleryCategoriesData from "@/data/content/galleryCategories.json";
+import galleryImagesData from "@/data/content/galleryImages.json";
+import alumniData from "@/data/content/alumni.json";
+import downloadCategoriesData from "@/data/content/downloadCategories.json";
+import downloadsData from "@/data/content/downloads.json";
+import upcomingStatsData from "@/data/content/upcomingStats.json";
+import visionData from "@/data/content/vision.json";
 
 export {
   siteData,
@@ -35,4 +49,18 @@ export {
   newsData,
   projectsData,
   announcementsData,
+  clubData,
+  activityCategoriesData,
+  activitiesData,
+  achievementCategoriesData,
+  achievementsData,
+  calendarCategoriesData,
+  calendarEventsData,
+  galleryCategoriesData,
+  galleryImagesData,
+  alumniData,
+  downloadCategoriesData,
+  downloadsData,
+  upcomingStatsData,
+  visionData,
 };

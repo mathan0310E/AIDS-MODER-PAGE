@@ -18,6 +18,20 @@ import newsData from "@/data/content/news.json";
 import projectsData from "@/data/content/projects.json";
 import announcementsData from "@/data/content/announcements.json";
 import facultyData from "@/data/content/faculty.json";
+import clubData from "@/data/content/club.json";
+import activityCategoriesData from "@/data/content/activityCategories.json";
+import activitiesData from "@/data/content/activities.json";
+import achievementCategoriesData from "@/data/content/achievementCategories.json";
+import achievementsData from "@/data/content/achievements.json";
+import calendarCategoriesData from "@/data/content/calendarCategories.json";
+import calendarEventsData from "@/data/content/calendarEvents.json";
+import galleryCategoriesData from "@/data/content/galleryCategories.json";
+import galleryImagesData from "@/data/content/galleryImages.json";
+import alumniData from "@/data/content/alumni.json";
+import downloadCategoriesData from "@/data/content/downloadCategories.json";
+import downloadsData from "@/data/content/downloads.json";
+import upcomingStatsData from "@/data/content/upcomingStats.json";
+import visionData from "@/data/content/vision.json";
 
 export const site = {
   ...(siteData as Record<string, unknown>),
@@ -31,8 +45,14 @@ export const navLinks = [
   { label: "Curriculum", href: "#curriculum" },
   { label: "Labs", href: "#labs" },
   { label: "Projects", href: "#projects" },
+  { label: "Activities", href: "#activities" },
+  { label: "Achievements", href: "#achievements" },
+  { label: "Events", href: "#events" },
   { label: "Careers", href: "#careers" },
   { label: "Faculty", href: "#faculty" },
+  { label: "Alumni", href: "#alumni" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Downloads", href: "#downloads" },
   { label: "News", href: "#news" },
   { label: "Contact", href: "#contact" },
 ];
@@ -164,3 +184,130 @@ export interface FacultyMember {
 
 /** Faculty is admin-editable (stored in src/data/content/faculty.json). */
 export const faculty: FacultyMember[] = facultyData as FacultyMember[];
+
+/* ----------------------------- Student Activities ------------------------- */
+
+export const activityCategories: string[] =
+  activityCategoriesData as string[];
+
+export interface Activity {
+  id: string;
+  name: string;
+  date: string;
+  location: string;
+  description: string;
+  category: string;
+  photos: string[];
+  registrationUrl?: string;
+}
+
+export const activities: Activity[] = activitiesData as Activity[];
+
+export interface Club {
+  name: string;
+  purpose: string;
+  tagline?: string;
+  features: string[];
+}
+
+export const club: Club = (clubData as Club[])[0];
+
+/* ------------------------------- Achievements ----------------------------- */
+
+export const achievementCategories: string[] =
+  achievementCategoriesData as string[];
+
+export interface Achievement {
+  id: string;
+  studentName: string;
+  year: string;
+  event: string;
+  achievement: string;
+  category: string;
+  certificateImage?: string;
+}
+
+export const achievements: Achievement[] = achievementsData as Achievement[];
+
+/* ----------------------------- Events Calendar ---------------------------- */
+
+export const calendarCategories: string[] =
+  calendarCategoriesData as string[];
+
+export const calendarCategoryColors: Record<string, string> = {
+  Workshop: "bg-cyan",
+  Seminar: "bg-violet",
+  Hackathon: "bg-magenta-bright",
+  Exam: "bg-rose-500",
+  Competition: "bg-amber-500",
+  "Guest Lecture": "bg-lime",
+  "Department Event": "bg-cyan-bright",
+};
+
+export interface CalendarEvent {
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  description: string;
+}
+
+export const calendarEvents: CalendarEvent[] =
+  calendarEventsData as CalendarEvent[];
+
+/* --------------------------------- Gallery -------------------------------- */
+
+export const galleryCategories: string[] =
+  galleryCategoriesData as string[];
+
+export interface GalleryImage {
+  id: string;
+  src: string;
+  alt: string;
+  category: string;
+}
+
+export const galleryImages: GalleryImage[] =
+  galleryImagesData as GalleryImage[];
+
+/* --------------------------------- Alumni --------------------------------- */
+
+export interface AlumniProfile {
+  id: string;
+  name: string;
+  graduationYear: string;
+  company: string;
+  role: string;
+  journey: string;
+  testimonial: string;
+  photo?: string;
+}
+
+export const alumni: AlumniProfile[] = alumniData as AlumniProfile[];
+
+/* -------------------------------- Downloads ------------------------------- */
+
+export const downloadCategories: string[] =
+  downloadCategoriesData as string[];
+
+export interface DownloadItem {
+  id: string;
+  title: string;
+  category: string;
+  url?: string;
+  available: boolean;
+}
+
+export const downloads: DownloadItem[] = downloadsData as DownloadItem[];
+
+/* --------------------------- Upcoming / placeholder stats ----------------- */
+
+export const upcomingStats: Stat[] = upcomingStatsData as Stat[];
+
+/* ------------------------------- Vision ----------------------------------- */
+
+export const vision = visionData as {
+  vision: string;
+  mission: string;
+  hodMessage: string;
+};

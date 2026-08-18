@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
-import { site, stats } from "@/data/department";
+import { site, stats, vision } from "@/data/department";
+import { SparkIcon, ArrowIcon, UsersIcon } from "@/components/icons";
 
 export function About() {
   return (
@@ -87,6 +88,39 @@ export function About() {
                 </p>
               </div>
             </aside>
+          </Reveal>
+        </div>
+
+        {/* Vision / Mission / HoD */}
+        <div className="mt-20 grid gap-5 lg:grid-cols-3">
+          <Reveal>
+            <div className="glass-panel h-full rounded-lg p-6">
+              <span className="grid size-10 place-items-center rounded-lg border border-cyan/20 bg-cyan/5 text-cyan">
+                <SparkIcon className="size-5" />
+              </span>
+              <h3 className="mt-4 font-display text-lg font-semibold text-mist">Vision</h3>
+              <p className="mt-2 text-sm leading-relaxed text-mist-soft">{vision.vision}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="glass-panel h-full rounded-lg p-6">
+              <span className="grid size-10 place-items-center rounded-lg border border-violet/20 bg-violet/5 text-violet-bright">
+                <ArrowIcon className="size-5" />
+              </span>
+              <h3 className="mt-4 font-display text-lg font-semibold text-mist">Mission</h3>
+              <p className="mt-2 text-sm leading-relaxed text-mist-soft">{vision.mission}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <div className="glass-panel h-full rounded-lg p-6">
+              <span className="grid size-10 place-items-center rounded-lg border border-magenta/20 bg-magenta/5 text-magenta-bright">
+                <UsersIcon className="size-5" />
+              </span>
+              <h3 className="mt-4 font-display text-lg font-semibold text-mist">
+                From the Head of the Department
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-mist-soft">{vision.hodMessage}</p>
+            </div>
           </Reveal>
         </div>
       </div>

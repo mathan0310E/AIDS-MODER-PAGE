@@ -1,0 +1,16 @@
+[
+  {
+    "id": "club-1",
+    "name": "AION — Artificial Intelligence and Operation Network",
+    "purpose": "The official student association of the AI & Data Science department. AION connects students through workshops, hackathons, research circles and industry interaction — connecting intelligence, empowering the future.",
+    "tagline": "Connecting Intelligence, Empowering the Future",
+    "features": [
+      "Hands-on workshops on ML and deep learning",
+      "Inter-college hackathons and coding sprints",
+      "Weekly project showcase and code review nights",
+      "Research paper reading and discussion circles",
+      "Guest talks by industry practitioners",
+      "Kaggle competition team practice"
+    ]
+  }
+]

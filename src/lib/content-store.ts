@@ -62,7 +62,21 @@ export type Collection =
   | "placementSupport"
   | "studentResources"
   | "faqs"
-  | "academicDocuments";
+  | "academicDocuments"
+  | "club"
+  | "activityCategories"
+  | "activities"
+  | "achievementCategories"
+  | "achievements"
+  | "calendarCategories"
+  | "calendarEvents"
+  | "galleryCategories"
+  | "galleryImages"
+  | "alumni"
+  | "downloadCategories"
+  | "downloads"
+  | "upcomingStats"
+  | "vision";
 
 /** Read a JSON collection from the local filesystem. */
 export async function readCollection<T>(name: Collection): Promise<T[]> {

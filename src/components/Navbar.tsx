@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 import { Crest } from "@/components/icons";
 import { navLinks } from "@/data/department";
 
+const primaryLinks = navLinks.filter((l) =>
+  ["About", "Curriculum", "Labs", "Projects", "Activities", "Events", "Faculty", "Gallery", "Contact"].includes(l.label)
+);
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -38,7 +42,7 @@ export function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((item) => (
+          {primaryLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}

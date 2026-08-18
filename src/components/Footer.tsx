@@ -31,7 +31,7 @@ export function Footer() {
             <h3 className="font-mono text-[10px] tracking-widest text-cyan uppercase">
               Explore
             </h3>
-            <ul className="mt-4 grid grid-cols-2 gap-2">
+            <ul className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link

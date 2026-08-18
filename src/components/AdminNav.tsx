@@ -7,6 +7,7 @@ import { Crest } from "@/components/icons";
 const links = [
   { label: "Dashboard", href: "/admin" },
   { label: "Settings", href: "/admin/settings" },
+  { label: "Vision", href: "/admin/vision" },
   { label: "Faculty", href: "/admin/faculty" },
   { label: "News", href: "/admin/news" },
   { label: "Projects", href: "/admin/projects" },
@@ -21,6 +22,13 @@ const links = [
   { label: "Resources", href: "/admin/resources" },
   { label: "FAQs", href: "/admin/faqs" },
   { label: "Academic Docs", href: "/admin/academic-docs" },
+  { label: "Association", href: "/admin/club" },
+  { label: "Activities", href: "/admin/activities" },
+  { label: "Achievements", href: "/admin/achievements" },
+  { label: "Events", href: "/admin/events" },
+  { label: "Alumni", href: "/admin/alumni" },
+  { label: "Gallery", href: "/admin/gallery" },
+  { label: "Downloads", href: "/admin/downloads" },
 ];
 
 export function AdminNav({ email }: { email: string }) {

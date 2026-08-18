@@ -23,6 +23,20 @@ export function adminSlug(c: Collection): string {
     studentResources: "resources",
     faqs: "faqs",
     academicDocuments: "academic-docs",
+    club: "club",
+    activityCategories: "activity-categories",
+    activities: "activities",
+    achievementCategories: "achievement-categories",
+    achievements: "achievements",
+    calendarCategories: "calendar-categories",
+    calendarEvents: "events",
+    galleryCategories: "gallery-categories",
+    galleryImages: "gallery",
+    alumni: "alumni",
+    downloadCategories: "download-categories",
+    downloads: "downloads",
+    upcomingStats: "upcoming-stats",
+    vision: "vision",
   };
   return map[c];
 }
